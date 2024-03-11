@@ -5,6 +5,7 @@ import Home from './Pages/Home';
 import NotFound from './Pages/NotFound';
 import Success from './Pages/Success';
 import './App.css'
+
 const App = () => {
   return (
     <>

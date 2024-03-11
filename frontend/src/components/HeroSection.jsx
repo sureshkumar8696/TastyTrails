@@ -34,7 +34,7 @@ const HeroSection = () => {
                 <h1 className="title dishes_title">Dishes</h1>
                 <img src="./threelines.svg" alt="threelines" />
               </div>
-              <img className="logo" src="logo.svg" alt="logo" />
+              <img className="logo logoRotate" src="logo.svg" alt="logo" />
             </div>
           </div>
         </div>

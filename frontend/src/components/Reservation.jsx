@@ -1,5 +1,5 @@
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
-import axios from 'axios';
+import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -93,12 +93,13 @@ const Reservation = () => {
                   onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
-              <button type="submit" onClick={handleReservation}>
-                RESERVE NOW{" "}
-                <span>
-                  <HiOutlineArrowNarrowRight />
-                </span>
-              </button>
+                <button className="r_btn" type="submit" onClick={handleReservation}>
+                  RESERVE NOW{" "}
+                  <span>
+                    <HiOutlineArrowNarrowRight />
+                  </span>
+                </button>
+             
             </form>
           </div>
         </div>

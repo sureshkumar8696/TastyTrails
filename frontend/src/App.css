@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600&display=swap");
 
 * {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   font-family: "Oswald", sans-serif;
   box-sizing: border-box;
   overflow-x: hidden;
@@ -34,6 +37,28 @@ nav::after {
   width: 100%;
   background: rgb(201, 201, 201);
 }
+
+.logoRotate {
+  animation: rotate 20s infinite linear;
+}
+.mantine-Avatar-image {
+  /* Set border radius to 50% for a circular shape */
+  border-radius: 50%;
+  width: 60px;
+  
+}
+.mantine-Avatar-image:hover{
+  cursor: pointer;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 nav .logo {
   flex: 1;
   display: flex;
@@ -60,6 +85,7 @@ nav .navLinks .links a {
   letter-spacing: 1.4px;
   
 }
+
 nav .navLinks .links a:hover {
   color: #222;
   
@@ -156,6 +182,8 @@ nav svg {
     border-radius: 0;
   }
 }
+
+
 /**********************************************************************************************************************/
 
 /********************** HERO SECTION COMPONENT STYLING **************************/
@@ -392,6 +420,7 @@ nav svg {
   background: #111;
   transition: ease-in-out 0.3s;
 }
+
 .about .container .banner a:hover span {
   background: #fff;
   color: #111;
@@ -988,12 +1017,22 @@ footer .container .banner .right {
   background: transparent;
   margin-top: 30px;
 }
+.reservation .container .banner .reservation_form_box form button:hover{
+  background-color: black;
+  color: white;
+  transition: 0.4s;
+}
 .reservation .container .banner .reservation_form_box form button span {
   margin-left: 1rem;
   padding: 3px;
   background: #111;
   border-radius: 100%;
   color: #fff;
+}
+.reservation .container .banner .reservation_form_box form button span:hover{
+  background: white;
+  color: black;
+  transition: 0.4s;
 }
 @media (max-width: 1520px) {
   .reservation .container {
