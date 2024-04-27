@@ -47,6 +47,10 @@ nav::after {
   width: 60px;
   
 }
+.user-info:hover{
+  cursor: pointer;
+
+}
 .mantine-Avatar-image:hover{
   cursor: pointer;
 }

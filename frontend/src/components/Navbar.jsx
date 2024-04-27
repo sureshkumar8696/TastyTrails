@@ -1,15 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { data } from "../restApi.json";
 import { Link } from "react-scroll";
-// import { Link as RouterLink } from "react-router-dom";
-
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useAuth0 } from "@auth0/auth0-react";
-import ProfileMenu from "./ProfileMenu";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
-  const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
+  const [showLogout, setShowLogout] = useState(false);
+  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
+  const [timerId, setTimerId] = useState(null);
+
+  const toggleLogout = () => {
+    setShowLogout(!showLogout);
+  };
+
+  const handleUsernameClick = () => {
+    setShow(!show);
+    setShowLogout(true);
+
+    if (showLogout) {
+      clearTimeout(timerId);
+    }
+
+    setTimerId(
+      setTimeout(() => {
+        setShowLogout(false);
+      }, 3000)
+    );
+  };
+
+  const handleLogoutClick = () => {
+    logout({ returnTo: window.location.origin });
+  };
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [timerId]);
+
   return (
     <>
       <nav>
@@ -28,15 +57,27 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          {!isAuthenticated ? (
+          {isAuthenticated ? (
+            <div className="user-info">
+              <div className="dropdown">
+                <span className="username" onClick={handleUsernameClick}>
+                  {user.name}
+                </span>
+                {showLogout && (
+                  <div className="dropdown-content">
+                    <button className="menuBtn" onClick={handleLogoutClick}>
+                      Logout
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          ) : (
             <button className="menuBtn" onClick={loginWithRedirect}>
               Login
             </button>
-          ) : (
-            <ProfileMenu user={user} logout={logout} />
           )}
         </div>
-
         <div className="hamburger" onClick={() => setShow(!show)}>
           <GiHamburgerMenu />
         </div>

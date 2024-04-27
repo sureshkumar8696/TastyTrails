@@ -21,7 +21,7 @@ const HeroSection = () => {
         <div className="banner">
           <div className="largeBox">
             <h1 className="title">
-              <span className="typed-word">Delicious</span>
+              <span className="typed-word"></span>
             </h1>
           </div>
           <div className="combined_boxes">
